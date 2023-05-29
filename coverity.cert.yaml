@@ -1,0 +1,33 @@
+capture:
+  security-da: false
+
+analyze:
+  location: local
+  cov-analyze-args:
+  - --disable-spotbugs    # Disable built-in Spotbugs rules
+  #- --enable-audit-dataflow
+  checkers:
+    all: true             # Run all quality checks.
+    audit: true
+    webapp-security:
+        aggressiveness-level: low
+
+  trust:                  # Specify trust domain settings.
+    all: false            # Distrust all input domains.
+
+  coding-standards:
+    cert-java:
+      pre-canned: all     # Enable all cert-java coding guidelines
+
+  jobs:
+    max: 8
+
+
+
+
+commit:
+  connect:
+    on-new-cert: trust
+    project: WebGoat 2023.4 Cert
+    stream: webgoat-v2023.4-dev-cert
+    url: https://connect.host.org

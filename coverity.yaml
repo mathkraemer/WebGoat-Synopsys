@@ -1,0 +1,21 @@
+capture:
+  security-da: false
+
+analyze:
+  location: local
+  cov-analyze-args:
+  - --disable-spotbugs    # Disable built-in Spotbugs rules
+  checkers:
+    all: true             # Run all quality checks.
+
+  trust:                  # Specify trust domain settings.
+    all: false            # Distrust all input domains.
+
+
+
+commit:
+  connect:
+    on-new-cert: trust
+    project: WebGoat 2023.4
+    stream: webgoat-v2023.4-dev-default
+    url: https://connect.host.org
